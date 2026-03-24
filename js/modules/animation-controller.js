@@ -3,7 +3,7 @@
  *
  * Phases:
  *   1. separate  — two halves move apart (400ms, easeOutCubic)
- *   2. fadeIn    — logo fades in (800ms, linear)
+ *   2. fadeIn    — logo fades in + halves fade out (800ms)
  *   3. complete  — show login area
  */
 export class AnimationController {
@@ -16,8 +16,8 @@ export class AnimationController {
     this._rafId = null;
 
     this._phaseDurations = {
-      separate: 400,
-      fadeIn: 800,
+      separate: 600,
+      fadeIn: 1000,
     };
   }
 

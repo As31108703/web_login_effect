@@ -35,13 +35,12 @@ export class InputHandler {
     if (this.enabled) return;
     this.enabled = true;
 
-    // Mouse
-    this.canvas.addEventListener('mousedown', this._onPointerDown);
+    // Listen on window so gestures starting outside canvas are captured
+    window.addEventListener('mousedown', this._onPointerDown);
     window.addEventListener('mousemove', this._onPointerMove);
     window.addEventListener('mouseup', this._onPointerUp);
 
-    // Touch
-    this.canvas.addEventListener('touchstart', this._onPointerDown, { passive: false });
+    window.addEventListener('touchstart', this._onPointerDown, { passive: false });
     window.addEventListener('touchmove', this._onPointerMove, { passive: false });
     window.addEventListener('touchend', this._onPointerUp);
   }
@@ -53,11 +52,11 @@ export class InputHandler {
     if (!this.enabled) return;
     this.enabled = false;
 
-    this.canvas.removeEventListener('mousedown', this._onPointerDown);
+    window.removeEventListener('mousedown', this._onPointerDown);
     window.removeEventListener('mousemove', this._onPointerMove);
     window.removeEventListener('mouseup', this._onPointerUp);
 
-    this.canvas.removeEventListener('touchstart', this._onPointerDown);
+    window.removeEventListener('touchstart', this._onPointerDown);
     window.removeEventListener('touchmove', this._onPointerMove);
     window.removeEventListener('touchend', this._onPointerUp);
   }

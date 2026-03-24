@@ -30,7 +30,7 @@ export class CanvasManager {
    */
   _updateSize() {
     this.dpr = window.devicePixelRatio || 1;
-    this.cssSize = Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.5);
+    this.cssSize = Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.85);
 
     this.canvas.style.width = `${this.cssSize}px`;
     this.canvas.style.height = `${this.cssSize}px`;
@@ -71,6 +71,6 @@ export class CanvasManager {
    * Get the image draw radius (half of cssSize).
    */
   getImageRadius() {
-    return this.cssSize * 0.48;
+    return this.cssSize * 0.3;
   }
 }
